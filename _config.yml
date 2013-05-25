@@ -1,0 +1,7 @@
+name: "placefi"
+description: "placefi"
+paginate: 10
+markdown: rdiscount
+permalink: none
+
+

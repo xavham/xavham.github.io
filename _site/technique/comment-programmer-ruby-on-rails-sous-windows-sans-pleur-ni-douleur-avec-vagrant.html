@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Sideblog|Comment programmer Ruby on Rails sous Windows sans pleur ni douleur avec Vagrant</title>
+  <meta name="description" content="Journal de Sideprog" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Sideprog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" media="screen">
+  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Amethysta|Lusitana' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/assets/css/custom.css" media="screen">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="../assets/js/html5shiv.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+  <div class="container">
+  <p class="muted text-center"><small><a href="http://sideprog.github.io/" title="SideBlog">SideBlog</a></small></p>
+  <hr>
+
+  <div class="row">
+
+    <div class="span8 offset2 article">
+      <h1 class="text-center">Comment programmer Ruby on Rails sous Windows sans pleur ni douleur avec Vagrant</h1>
+
+
+<p class="muted text-center"><small>Article de <em>1160 mots </em>publié par <em>Xavier</em> par un frais dimanche du <em>28 avril 2013</em> et qui vous prendra environ <em>5 minutes</em> à lire. </small></p>
+
+
+<hr>
+
+
+<p>J'ai un PC équipé de Windows 7, et je n’ai pas envie de changer. Je n’ai ni les moyens d’acheter un Mac (et, au passage, d'être pris pour un <em>pigeon</em> par Apple, ou une vache à lait), ni envie de configurer un dual boot pour installer linux sur le même PC.</p>
+
+<p>Or, je ne pense pas lancer un gros troll en affirmant qu’en dehors de programmation .net, Windows est loi d’être l’outil de prédilection des programmeurs. Et il n’est certes pas idéal pour débuter avec Ruby on Rails.</p>
+
+<p>Il est bien entendu tout à fait possible d'installer Ruby sous Windows. Mais on peut alors se retrouver limité par la suite, par exemple pour installer certaines "gems" qui doivent être compilées nativement sur le système sur lequel on les installe.</p>
+
+<p>Par ailleurs, si comme moi votre objectif est de publier votre travail sur un serveur de production, il est plus logique d'essayer de développer sur un système le plus proche possible du serveur de production.</p>
+
+<p>Alors, que faire pour programmer efficacement en Ruby on Rails, tout en restant sous Windows mais en évitant les limitations inhérentes à ce système?</p>
+
+<h2>Oui, que faire ?</h2>
+
+<p>Eh bien ma solution (et celle de pas mal d’autres personnes, apparemment) s’appelle <a href="http://www.vagrantup.com/">Vagrant</a>.</p>
+
+<p>Il s’agit d’un outil permettant de créer et distribuer des environnements de développements virtuels. Il permet ainsi de créer, par exemple sur un PC équipé de Windows, un environnement de développement virtuel sous, par exemple, Linux Ubuntu.</p>
+
+<p>Vagrant permet en fait de créer un grand nombre d'environnements de développement différents. L'idéal est peut-être, en tous cas c'est mon choix, de répliquer l'environnement d'un serveur de production.</p>
+
+<p><strong>Voici comment j’ai procédé :</strong></p>
+
+<h2>1. Installation de Ruby et Rubygems</h2>
+
+<p>Avant d’installer Vagrant, il faut installer Ruby et Rubygems. Comme je vous le disais, je suis sous Windows. À ce stade, je n'ai pas le choix: je dois télécharger une version Windows de Ruby pour pouvoir installer Vagrant et aller plus loi.</p>
+
+<p>Pour ce faire, direction <a href="http://rubyinstaller.org/">RubyInstaller</a>, téléchargement de la dernière version, et installation. J'ai pour ma part installé la version 1.9.3p392.</p>
+
+<p>Sur le même site, il faut également télécharger le « development kit », et l’installer en suivant les indications données <a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit">ici</a>.</p>
+
+<p>Je ne vous garantis pas que l'installation se passera bien... Les joies de Ruby sous Windows vous obligeront peut être (ce fut mon cas), à devoir traiter telle ou telle erreur obscure. Impossible d'entrer dans les détails ici, surtout que les erreurs possibles dépendent de votre configuration et de la version de RubyInstaller que vous avez téléchargée. Sachez que Google est votre ami et pourra très certainement vous aider si vous rencontrez une erreur. Par ailleurs, n'hésitez pas à éventuellement télécharger une version moins récente (à nouveau, ce fut mon cas).</p>
+
+<p>En tous cas, sachez que c'est l'étape la plus difficile, donc ne vous découragez surtout pas.</p>
+
+<p>Une fois cette petite prouesse accomplie, nous allons passer à l'installation de Vagrant.</p>
+
+<h2>2. Installation de Vagrant</h2>
+
+<p>Deuxième étape : j’installe Vagrant. Pour ce faire, rien de plus simple : j’invoque la ligne de commande Windows en tapant « cmd » dans la barre de recherche de programmes</p>
+
+<p><img src="/assets/images/1.png" alt="SideBlog - installation de Vagrant" /></p>
+
+<p>Ensuite, je tape simplement :</p>
+
+<div>
+  <pre><code class='ruby'>gem install vagrant</code></pre>
+</div>
+
+
+<p><img src="/assets/images/2.png" alt="SideBlog - installation de Vagrant" /></p>
+
+<p>Et je laisse l’installation se faire gentiment.</p>
+
+<p>Une fois l'installation de Vagrant achevée, nous allons voir comme installer le logiciel de virtualisation.</p>
+
+<h2>3. Installation de Virtualbox</h2>
+
+<p>Troisième étape, télécharger et installer <a href="https://www.virtualbox.org/">Virtualbox</a>. VirtualBox est un logiciel de virtualisation de systèmes d'exploitation. En utilisant les ressources matérielles de votre ordinateur, VirtualBox permet la création d'un ou de plusieurs ordinateurs virtuels dans lesquels s'installent d'autres systèmes d'exploitation.</p>
+
+<p>Donc, VirtualBox va nous permettre de lancer effectivement notre environnement de développement sous Ubuntu.</p>
+
+<p>Ah un détail au passage: si comme moi vous doutez de la fiabilité de ce genre de système, ou redoutez une éventuelle lenteur du système ainsi virtualisé, rassurez-vous. C'est fiable, et c'est suffisamment rapide pour faire du développement.</p>
+
+<p>Passons maintenant à l'avant-dernière étape: l'installation du système d'exploitation sur notre ordinateur virtuel. Ceci se fait de manière relativement simple en installant une "box" Vagrant.</p>
+
+<h2>4. Installation d’une box Vagrant</h2>
+
+<p>Nous arrivons tout doucement au bout, avec le téléchargement et l’installation d’une « box » vagrant, c’est-à-dire d’un environnement de développement virtuel. En surfant sur <a href="http://www.vagrantbox.es/">ce site</a> qui en présente un assortiment, mon choix se porte sur une version Ubuntu 11.10 server amd64.</p>
+
+<p>Elle s’installe de la façon suivante : retour dans la ligne de commande, et entrée des commandes :</p>
+
+<div>
+  <pre><code class='ruby'>vagrant box add ubuntu-1110-server-amd64 http://timhuegdon.com/vagrant-boxes/ubuntu-11.10.box
+vagrant init ubuntu-1110-server-amd64
+vagrant up</code></pre>
+</div>
+
+
+<p>Et voilà, la box est lancée. Il nous reste à nous connecter à notre serveur ubuntu tout neuf, via ssh. Pour ce faire, tapez</p>
+
+<div>
+  <pre><code class='ruby'>vagrant ssh</code></pre>
+</div>
+
+
+<p>et suivez les indications. En gros, le résultat de la commande va vous dire que, sous windows, vous ne pouvez pas vous connecter directement, et que vous allez devoir télécharger <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a>, et le paramétrer avec les données qui sont affichées.</p>
+
+<p>A noter qu’en ce qui me concerne, je n’ai pas pu utiliser la clé telle qu’elle était donnée. J’ai d’abord du la charger dans puttygen (fourni lors de l’installation de Putty), puis la sauvegarder à nouveau pour qu’elle soit utilisable par Putty (problème de format, apparemment).</p>
+
+<p>Une fois connecté en SSH, il ne reste plus qu’à installer ruby on rails.</p>
+
+<h2>5. Installation de Ruby on Rails sur notre serveur virtuel</h2>
+
+<p>Je suis donc désormais connecté à mon serveur virtuel en SSH via Putty.</p>
+
+<p><img src="/assets/images/3.png" alt="SideBlog - installation de Vagrant" /></p>
+
+<p>L’installation de Ruby et Rails est alors assez facile. Il suffit d’entrer les commandes suivantes :</p>
+
+<h3>Mise à jour du système</h3>
+
+<div>
+  <pre><code class='ruby'>sudo apt-get update
+sudo apt-get install build-essential zlib1g-dev git-core sqlite3 libsqlite3-dev curl libssl-dev libreadline6-dev postgresql postgresql-server-dev-9.1</code></pre>
+</div>
+
+
+<h3>Installation de rbenv</h3>
+
+<div>
+  <pre><code class='text'>cd
+git clone git://github.com/sstephenson/rbenv.git .rbenv
+echo export PATH= $HOME/.rbenv/bin:$PATH  &gt;&gt; ~/.bash_profile
+echo eval $(rbenv init -)  &gt;&gt; ~/.bash_profile
+source ~/.bash_profile
+
+git clone https://github.com/sstephenson/ruby-build.git
+cd ruby-build
+sudo ./install.sh
+
+rbenv install 1.9.2-p290
+rbenv rehash
+rbenv global 1.9.2-p290
+ruby -v</code></pre>
+</div>
+
+
+<h3>Installation de Ruby on Rails</h3>
+
+<div>
+  <pre><code class='ruby'>gem install rails
+gem install bundler
+rbenv rehash
+bundle</code></pre>
+</div>
+
+
+<p>Et voilà!</p>
+
+<p>Vous avez maintenant en environnement de développement Ruby on Rails parfaitement fonctionnel, sous Ubuntu, accessible directement depuis votre PC sous Windows :).</p>
+
+<p>J’espère avoir été clair dans les explications. Si vous voyez des choses à ajouter/modifier ou si des points vous semblent nébuleux, n’hésitez pas à le signaler en commentaire afin que je mette ce petit tutoriel à jour.</p>
+
+
+      <hr>
+      <p class="muted">Pour recevoir <i>de temps en temps</i> en email de ma part, notamment lorsque je publie un nouvel article, laissez-moi votre email ici:</p>
+        <form action="https://madmimi.com/signups/subscribe/75855" method="post" id="mad_mimi_signup_form" target="_blank">
+  <fieldset>
+   <div class="mimi_field text email required">
+    <label for="signup_email">Email</label>
+    <input id="signup_email" name="signup[email]" type="text" placeholder="votre_email@example.com" data-invalid-message="Cet email semble incorrect" class="required">
+    <div class="mimi_field_feedback"></div><span class="mimi_funk"></span>
+   </div>
+   <div class="mimi_field action">
+    <input id="webform_submit_button" value="Et voilà!" type="submit" class="submit btn" data-default-text="Et voilà!" data-submitting-text="Sending…" data-invalid-text="↑ Vous oubliez d'indiquer votre email...">
+   </div>
+  </fieldset>
+ </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+(function() {
+  var form = document.getElementById("mad_mimi_signup_form"),
+      submit = document.getElementById("webform_submit_button"),
+      email = /.+@.+\..+/;
+
+  form.onsubmit = function(event) {
+    var isValid = validate();
+    if(!isValid) {
+      for(var i = 0; i < form.elements.length; ++i) {
+        var input = form.elements[i];
+        if(input.className.indexOf("required") >= 0) {
+          input.onchange = validate;
+        }
+      }
+      return false;
+    }
+    if(form.getAttribute("target") != "_blank") {
+      form.className = "mimi_submitting";
+      submit.value = submit.getAttribute("data-submitting-text");
+      submit.disabled = true;
+      submit.className = "disabled";
+    }
+
+    setTimeout(function() {
+      for(var i = 0; i < form.getElementsByTagName("input").length; ++i) {
+        var input = form.getElementsByTagName("input")[i];
+        if(input.getAttribute("type") == "text") {
+          input.value = "";
+        }
+        if(input.id == "signup_email") {
+          input.placeholder = "you@example.com";
+        } else {
+          input.placeholder = "";
+        }
+      }
+    }, 3000);
+  };
+
+  function validate() {
+    var isValid = true;
+
+    for(var i = 0; i < form.elements.length; ++i) {
+      var input = form.elements[i],
+          allDivs = input.parentNode.getElementsByTagName("div");
+
+      if(input.className.indexOf("required") >= 0) {
+        if(input.id == "signup_email") {
+          if(!email.test(input.value)) {
+            emailErrorMessage(input, allDivs);
+            isValid = false;
+          } else {
+            removeErrorMessage(input, allDivs);
+          }
+        } else {
+          if((input.type == "checkbox" && !input.checked) || input.value == "" || input.value == "-1") {
+            fieldErrorMessage(input, allDivs);
+            isValid = false;
+          } else {
+            removeErrorMessage(input, allDivs);
+          }
+        }
+      }
+    }
+
+    form.className = isValid ? "" : "mimi_invalid";
+    submit.value = isValid ? submit.getAttribute("data-default-text") : submit.getAttribute("data-invalid-text");
+    submit.disabled = !isValid;
+    submit.className = isValid ? "submit" : "disabled";
+
+    return isValid;
+  }
+
+  function emailErrorMessage(input, allDivs) {
+    if(input.getAttribute("data-webform-type") == "iframe") {
+      input.className = "required invalid";
+      input.placeholder = input.getAttribute("data-required-message") || "This field is required";
+    } else {
+      allDivs[0].innerHTML = input.getAttribute("data-invalid-message") || "This field is invalid";
+    }
+  }
+
+  function fieldErrorMessage(input, allDivs) {
+    if(input.getAttribute("data-webform-type") == "iframe") {
+      input.className = "required invalid";
+      input.placeholder = input.getAttribute("data-required-message") || "This field is required";
+    } else {
+      for(var i = 0; i < allDivs.length; ++i) {
+        var element = allDivs[i];
+        if(element.className.indexOf("mimi_field_feedback") >= 0) {
+          return element.innerHTML = input.getAttribute("data-required-message") || "This field is required";
+        }
+      }
+    }
+  }
+
+  function removeErrorMessage(input, allDivs) {
+    if(input.getAttribute("data-webform-type") == "iframe") {
+      input.className = "required";
+    }
+
+    for(var i = 0; i < allDivs.length; ++i) {
+      var element = allDivs[i];
+      if(element.className.indexOf("mimi_field_feedback") >= 0) {
+        return element.innerHTML = "";
+      }
+    }
+  }
+})();
+</script>
+
+
+
+  <!-- code google analytics -->
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39375948-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+</body>
+</html>
