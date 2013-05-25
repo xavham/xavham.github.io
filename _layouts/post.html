@@ -2,13 +2,37 @@
 layout: default
 ---
 <div class="container">
-  <p class="muted text-center"><small><a href="http://www.placefi.lu/" title="Placefi">Placefi</a></small></p>
+  <p class="muted text-center"><small><a href="http://www.placefi.lu/" title="PlaceFi">PlaceFi</a></small></p>
   <hr>
 
   <div class="row">
 
     <div class="span8 offset2 article">
       {{ content }}
+	  
+	  <hr>
+	  <!-- Bouton de partage linkedin -->
+	  <script src="//platform.linkedin.com/in.js" type="text/javascript">
+ lang: fr_FR
+</script>
+<script type="IN/Share"></script>
+
+	<!-- Bouton de partage twitter -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="xhamori" data-lang="fr">Tweeter</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Bouton de partage google+. -->
+<div class="g-plus" data-action="share" data-annotation="none"></div>
+
+<script type="text/javascript">
+  window.___gcfg = {lang: 'fr'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 
       <hr>
       <p class="muted">Pour recevoir <i>de temps en temps</i> en email de ma part, notamment lorsque je publie un nouvel article, laissez-moi votre email ici:</p>
