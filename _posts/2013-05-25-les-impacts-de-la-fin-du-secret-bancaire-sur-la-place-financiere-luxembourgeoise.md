@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Les impacts de la fin du secret bancaire sur la place financière luxembourgeoise
-category: secret bancaire
+category: secret_bancaire
 published: true
 ---
 <h1 class="text-center">Les impacts de la fin du secret bancaire sur la place financière luxembourgeoise</h1>
