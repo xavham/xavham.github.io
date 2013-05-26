@@ -6,6 +6,7 @@ published: true
 ---
 <h1 class="text-center">Les impacts de la fin du secret bancaire sur la place financière luxembourgeoise</h1>
 
+
 <p class="muted text-center">Révolution ou évolution, le secret bancaire luxembourgeois sera prochainement adapté. Le Luxembourg contribuera un peu plus à la transparence voulue par l'Union européenne et surtout par les États-Unis. Les impacts directs et indirects pour la place financière seront multiples. Petit tour d'horizon.</p>
 
 <p class="muted text-center"><small>Article de <em>{{ page.content | number_of_words }} mots </em>publié par <em class="author">Xavier Hamori</em> le <em>25 mai 2013</em> et qui vous prendra environ <em>7 minutes</em> à lire. </small></p>
