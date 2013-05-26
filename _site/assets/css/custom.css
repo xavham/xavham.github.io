@@ -2,8 +2,12 @@ body {
   font-family: 'Georgia', serif;
   font-size: 24px;
   color: #333333;
-  line-height: 33px;
+  line-height: 44px;
   background-color: #ffffff
+}
+
+small{
+  line-height: 20px;
 }
 
 .masthead{
@@ -11,6 +15,18 @@ body {
   border-bottom: 1px;
   border-bottom-style: solid;
   border-color: #999999;
+}
+
+
+a {
+  border-bottom-color: #333333;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  color: #333333;
+  cursor: auto;
+}
+a:hover {
+  text-decoration: none
 }
 
 h1, h2, h3, h4 {
@@ -32,12 +48,12 @@ h3{
 }
 
 p {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .index_page{
 	line-height: 30px;
-	
+
 }
 
 .article{
