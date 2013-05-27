@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
   <title>PlaceFi | Placefi</title>
-  <meta name="description" content="PlaceFi - des échos place financière de Luxembourg" />
-  <meta name="keywords" content="luxembourg place financière" />
+  <meta name="description" content="PlaceFi - des echos place financiere de Luxembourg" />
+  <meta name="keywords" content="luxembourg place financiÃ¨re" />
   <meta name="author" content="Xavier Hamori" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
@@ -11,6 +11,8 @@
   <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Amethysta|Lusitana' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/assets/css/custom.css" media="screen">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/assets/javascript/jquery.scrolldepth.js"></script>
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
   <script src="../assets/js/html5shiv.js"></script>
@@ -52,9 +54,19 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-41217244-1', 'placefi.lu');
-  ga('send', 'pageview');
+  /*ga('create', 'UA-XXXX-Y', {
+  'cookieDomain': 'none'
+  });*/
 
-</script>
+  ga('send', 'pageview');
+  </script>
+
+  <script>
+  $(document).ready(function () {
+    $.scrollDepth();
+  });
+
+  </script>
 
 </body>
 </html>
