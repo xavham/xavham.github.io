@@ -1,13 +1,13 @@
 body {
   font-family: 'Georgia', serif;
-  font-size: 24px;
+  /*font-size: 24px;
+  line-height: 44px;*/
   color: #333333;
-  line-height: 44px;
   background-color: #ffffff
 }
 
 small{
-  line-height: 20px;
+  /*line-height: 20px;*/
 }
 
 .masthead{
@@ -35,16 +35,16 @@ h1, h2, h3, h4 {
 }
 
 h1{
-  font-size: 50px;
-  line-height: 60px;
+  /*font-size: 50px;
+  line-height: 60px;*/
 }
 h2{
-  font-size: 40px;
-  line-height: 45px;
+  /*font-size: 40px;
+  line-height: 45px;*/
 }
 h3{
-  font-size: 35px;
-  line-height: 40px;
+  /*font-size: 35px;
+  line-height: 40px;*/
 }
 
 p {
@@ -52,11 +52,7 @@ p {
 }
 
 .index_page{
-	line-height: 30px;
-
-}
-
-.article{
+	/*line-height: 30px;*/
 
 }
 
