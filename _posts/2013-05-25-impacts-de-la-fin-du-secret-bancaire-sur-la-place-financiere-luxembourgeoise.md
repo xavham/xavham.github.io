@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Les impacts de la fin du secret bancaire sur la place financiere luxembourgeoise
+description: Le secret bancaire va prochainement disparaitre au Luxembourg. Analyse des principaux impacts de cette adaptation sur la place financiere luxembourgeoise.
 category: secret_bancaire
 published: true
 ---
