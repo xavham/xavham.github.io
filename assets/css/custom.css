@@ -19,6 +19,20 @@ small{
   border-color: #999999;
 }
 
+.border15px{
+  margin-right: 15px;
+}
+
+.circular {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  background: url(/assets/images/xavier_hamori.jpg) no-repeat;
+
+  }
+
 
 a {
   border-bottom-color: #333333;
