@@ -7,8 +7,8 @@ published: true
 ---
 <h1 class="text-center">Les impacts de la fin du secret bancaire sur la place financière luxembourgeoise</h1>
 
-<p class="muted text-center">Révolution ou évolution, le secret bancaire luxembourgeois sera prochainement adapté. Le Luxembourg contribuera un peu plus à la transparence fiscale voulue par l'Union européenne et surtout par les États-Unis. Les impacts directs et indirects pour la place financière seront multiples. Petit tour d'horizon.</p>
-<p class="muted text-center"><small>Article de <em>{{ page.content | number_of_words }} mots </em>publié par <em class="author">Xavier Hamori</em> le <em>25 mai 2013</em> et qui vous prendra environ <em>8 minutes</em> à lire. </small></p>
+<p class="text-muted text-center">Révolution ou évolution, le secret bancaire luxembourgeois sera prochainement adapté. Le Luxembourg contribuera un peu plus à la transparence fiscale voulue par l'Union européenne et surtout par les États-Unis. Les impacts directs et indirects pour la place financière seront multiples. Petit tour d'horizon.</p>
+<p class="text-muted text-center"><small>Article de <em>{{ page.content | number_of_words }} mots </em>publié par <em class="author">Xavier Hamori</em> le <em>25 mai 2013</em> et qui vous prendra environ <em>8 minutes</em> à lire. </small></p>
 <hr>
 Le secret bancaire luxembourgeois est en sursis, et ce sursis prendra fin le 1 janvier 2015. C'est Jean-Claude Juncker lui-même qui l'a évoqué dans son [discours sur l'état de la nation](http://www.gouvernement.lu/gouvernement/etat-nation/etat-nation-fr-2013.pdf) le 10 avril 2013.
 
