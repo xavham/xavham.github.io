@@ -1,4 +1,9 @@
-_site/
-.idea/
+_site
+.idea
+/_site
 
 _site/assets/css/custom.css
+
+_site/index.html
+
+_site/secret_bancaire/impacts-de-la-fin-du-secret-bancaire-sur-la-place-financiere-luxembourgeoise.html
