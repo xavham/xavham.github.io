@@ -1,7 +1,7 @@
 name: "placefi"
 description: "placefi"
 paginate: 10
-markdown: rdiscount
+markdown: kramdown
 permalink: none
 gems: [jekyll-paginate]
 paginate_path: "page:num"
