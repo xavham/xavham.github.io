@@ -3,5 +3,6 @@ description: "placefi"
 paginate: 10
 markdown: rdiscount
 permalink: none
-
+gems: [jekyll-paginate]
+paginate_path: "page:num"
 
