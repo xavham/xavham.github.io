@@ -3,10 +3,12 @@ layout: home
 title: Placefi
 ---
 <div class="center-block" style="max-width: 680px;">
-    <p>Les articles de PlaceFi:</p>
-    <ul>
+    <h2 class="text-center">Les articles de PlaceFi</h2>
+    <dl class="dl-horizontal">
         {% for post in site.posts %}
-        <li class="index_page"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} {{ post.date | date: "%d/%m/%Y" }}</a></li>
+        <dt><small> {{ post.date | date: "%d/%m/%Y" }}</small></dt>
+        <dd><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> </dd>
         {% endfor %}
-    </ul>
+
+    </dl>
 </div>
