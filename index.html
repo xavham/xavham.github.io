@@ -6,7 +6,7 @@ title: Placefi
     <p>Les articles de PlaceFi:</p>
     <ul>
         {% for post in site.posts %}
-        <li class="index_page"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} {{post.date}}</a></li>
+        <li class="index_page"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} {{ post.date | date: "%d/%m/%Y" }}</a></li>
         {% endfor %}
     </ul>
 </div>
